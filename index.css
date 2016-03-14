@@ -1,0 +1,242 @@
+/* Par Cruwp le 22/02/2016 */
+body {
+    width : 100%;
+    margin : 0;
+    padding : 0;
+    background : #fefcea;
+    font-family : "Ubuntu", sans-serif;
+    color : #240f00;
+}
+a {
+    text-decoration : none;
+    color: #620d19;
+}
+a:hover {
+    color: #bb1c34;
+}
+/**
+ * HEADER
+ */
+header {
+    margin-top: 37px;
+    height : 46px;
+    border-top: 1px solid #6b5442;
+    border-bottom: 1px solid #6b5442;
+    font-family : "Gill Sans MT", sans-serif;
+    text-transform: uppercase;
+}
+/**
+ * MENU DE NAVIGATION
+ */
+nav {
+    width: 100%;
+    height : 100%;
+    margin: auto;
+    text-align: center;
+    line-height: 44px;
+}
+nav a {
+    color : #19120b;
+    text-decoration: none;
+    margin-left: 50px;
+}
+nav a:hover {
+    color: #b48e72;
+}
+/**
+ * TITRE
+ */
+#title {
+    width : 100%;
+    text-align : center;
+    margin-top: 75px;
+    font-family: "Mackintosh SF", sans-serif;
+}
+#title h1 {
+    font-size: 40px;
+    color: #240f00;
+    letter-spacing: 4px;
+}
+#title h2 {
+    font-size: 21px;
+    color: #6b5442;
+    font-weight: 400;
+}
+
+/**
+ *  CONTENU -> Description
+ */
+#description {
+    width: 100%;
+    margin-top: 50px;
+    background : #e7e5d4;
+    min-height : 150px;
+    padding-bottom : 50px;
+}
+#description p {
+    display : block;
+    max-width : 960px;
+    margin: auto;
+    text-align : justify;
+    padding: 40px;
+}
+#description span a {
+    padding : 5px;
+    width: 100px;
+    margin :0 auto;
+    display : inline-block;
+    border : 2px solid #240f00;
+    text-align : center;
+    border-radius: 10px;
+    color: #240f00;
+    text-decoration : none;
+    transition: 0.3s;
+}
+#description span a:hover {
+    border-color : #6b5442;
+    color: #6b5442;
+}
+
+p a {
+    color: #240f00;
+}
+p a:hover {
+    color: #6b5442;
+}
+/**
+ * CONTENU -> Body
+ */
+#content {
+    margin: 0 auto;
+    padding : 0;
+    max-width: 960px;
+}
+#content table {
+    padding : 0;
+    margin: 0 auto;
+}
+#content td {
+    padding : 0 0 25px 0;
+}
+#content h3 {
+    font-family : "Mackintosh SF", sans-serif;
+    letter-spacing: 2px;
+    font-weight : 400;
+    font-size : 25px;
+    text-align : center;
+}
+#content p {
+    width : 80%;
+    margin: auto;
+}
+#content span a {
+    padding : 5px;
+    width: 60%;
+    margin :0 auto;
+    display : block;
+    border : 2px solid #240f00;
+    text-align : center;
+    border-radius: 10px;
+    color: #240f00;
+    text-decoration : none;
+    transition: 0.3s;
+}
+#content span a:hover {
+    border-color : #6b5442;
+    color: #6b5442;
+}
+/**
+ * CONNEXION
+ */
+.connect {
+    width: 500px;
+    margin :0 auto;
+}
+.connect label {
+    float : left;
+    width : 150px;
+    display : block;
+}
+span.warning {
+    color : #8d1421;
+    background : #bb8073;
+    display : block;
+    padding: 5px;
+    border : 1px solid #8d1421;
+    border-radius :5px;
+}
+span.success {
+    color : #064800;
+    background : #6fe442;
+    display : block;
+    padding: 5px;
+    border : 1px solid #064800;
+    border-radius :5px;
+}
+
+#annonces {
+    max-width : 960px;
+    margin :0 auto;
+}
+#annonces h3 {
+    padding: 40px;
+    font-size: 25px;
+}
+#annonces table {
+    width :100%;
+    border-collapse: collapse;
+}
+#annonces th {
+    text-align: left;
+    border-bottom : 1px solid #aaa;
+    padding: 15px;
+}
+#annonces td {
+    padding: 20px;
+    border-bottom : 1px solid #ccc6a3;
+}
+#annonces tr.tbody:hover {
+    background : #ccc6a3;
+    cursor : pointer;
+}
+#annonces .thead {
+    background : #2c070b;
+    color: #fefcea;
+}
+
+
+/**
+ * FOOTER
+ */
+footer {
+    margin-top: 100px;
+    width :100%;
+    background : #2c070b;
+    color: #f5feb8;
+    padding : 10px 0 10px 0;
+}
+footer #foot {
+    max-width : 960px;
+    margin :0 auto;
+}
+footer h5 {
+    padding :0;
+    margin : 0;
+    font-size : 16px;
+}
+footer #nav ul {
+    list-style: none;
+    font-size : 13px;
+    padding-left : 15px;
+}
+footer #nav ul li a {
+    color: #7abd64;
+    text-decoration : none;
+}
+footer #nav ul li a:hover {
+    color: #499a00;
+}
+.triangle {
+    cursor : pointer;
+    font-size : 8px;
+}
