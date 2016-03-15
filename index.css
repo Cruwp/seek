@@ -15,8 +15,8 @@ a:hover {
     color: #bb1c34;
 }
 /**
- * HEADER
- */
+* HEADER
+*/
 header {
     margin-top: 37px;
     height : 46px;
@@ -26,8 +26,8 @@ header {
     text-transform: uppercase;
 }
 /**
- * MENU DE NAVIGATION
- */
+* MENU DE NAVIGATION
+*/
 nav {
     width: 100%;
     height : 100%;
@@ -44,8 +44,8 @@ nav a:hover {
     color: #b48e72;
 }
 /**
- * TITRE
- */
+* TITRE
+*/
 #title {
     width : 100%;
     text-align : center;
@@ -64,8 +64,8 @@ nav a:hover {
 }
 
 /**
- *  CONTENU -> Description
- */
+*  CONTENU -> Description
+*/
 #description {
     width: 100%;
     margin-top: 50px;
@@ -104,8 +104,8 @@ p a:hover {
     color: #6b5442;
 }
 /**
- * CONTENU -> Body
- */
+* CONTENU -> Body
+*/
 #content {
     margin: 0 auto;
     padding : 0;
@@ -146,8 +146,8 @@ p a:hover {
     color: #6b5442;
 }
 /**
- * CONNEXION
- */
+* CONNEXION
+*/
 .connect {
     width: 500px;
     margin :0 auto;
@@ -206,8 +206,43 @@ span.success {
 
 
 /**
- * FOOTER
- */
+* JEUX
+*/
+#games {
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: center;
+}
+.item {
+    display: inline-block;
+    margin: 5px 5px 0 0;
+    width: 200px;
+    height: 240px;
+    padding: 5px;
+    overflow: hidden;
+    background: #2c070b;
+    transition: 0.5s;
+    color: #f5feb8;
+    border-radius: 5px;
+}
+.item img {
+    border-radius: 5px;
+}
+.item:hover {
+    background: #ccc6a3;
+    color: #240f00;
+}
+.item span.game {
+    font-weight: bold;
+    margin: auto;
+    padding: 5px;
+}
+.bold {
+    font-weight: bold;
+}
+/**
+* FOOTER
+*/
 footer {
     margin-top: 100px;
     width :100%;
