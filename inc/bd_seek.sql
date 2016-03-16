@@ -61,8 +61,17 @@ CREATE TABLE IF NOT EXISTS `jeux` (
 --
 
 INSERT INTO `jeux` (`jid`, `jnom`, `jminiature`) VALUES
-(1, 'League of Legends', 'lol.png'),
-(2, 'Counter Strike Global Offensive', 'csgo.png');
+(1, 'League of Legends', 'LoL'),
+(2, 'Counter Strike Global Offensive', 'CSGOlogo');
+(3, 'Rocket League', 'RocketLeague');
+(4, 'Smite', 'Smite');
+(5, 'Halo', 'halo');
+(6, 'HearthStone', 'hs');
+(7, 'Minecraft', 'mc');
+(8, 'Day Z', 'DayzLogo');
+(9, 'Dota 2', 'dota');
+(10, 'Call of Duty', 'CoD');
+(11, 'Diablo 3', 'DiabloLogo');
 
 -- --------------------------------------------------------
 
