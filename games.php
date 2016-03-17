@@ -1,6 +1,6 @@
 <?php
 session_start();
-$titre ="Seek.fr - Jeux";
+$titre ="Seek.fr - Jeux actuellement disponibles";
 include "head.php";
 ?>
 

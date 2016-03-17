@@ -18,7 +18,7 @@
         <table cellspacing="0">
             <tr>
                 <td width="314px" style="background: #e3ddcb;">
-                    <h3>équipes</h3>
+                    <h3>Équipes</h3>
                     <p>Parcourez les annonces des équipes recrutant des joueurs et candidatez !</p>
                 </td>
                 <td width="8px"></td>

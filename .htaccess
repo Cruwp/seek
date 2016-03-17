@@ -1,3 +1,5 @@
 RewriteEngine On
-RewriteRule ^([0-9a-zA-Z_-]+)$ $1.php [L]
-ErrorDocument 404 /seek/404.php
+RewriteRule prop-([0-9]+) prop.php?p=$1
+RewriteRule recrut-([0-9]+) recrut.php?r=$1
+RewriteRule ^([a-zA-Z_-]+)$ $1.php [L]
+ErrorDocument 404 /404.php

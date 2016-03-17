@@ -272,7 +272,48 @@ footer #nav ul li a {
 footer #nav ul li a:hover {
     color: #499a00;
 }
+
+/**
+* DIVERS
+*/
 .triangle {
     cursor : pointer;
     font-size : 8px;
+}
+/* Champs de texte */
+input[type=text], input[type=password], input[type=email] {
+    border: 1px solid #333;
+    padding: 3px;
+    border-radius: 4px;
+    color: #555;
+    font-size: 15px;
+}
+input:focus {
+    border: 1px solid coral;
+}
+
+/* Avatars posts */
+img.avatar {
+    border: 1px solid #2c070b;
+}
+a.bold {
+    font-weight: bold;
+}
+
+.btndark {
+    padding : 9px;
+    border : 2px solid #240f00;
+    border-radius: 10px;
+    color: #f5feb8;
+    text-decoration : none;
+    transition: 0.5s;
+    display: inline-block;
+    margin-top: 20px;
+    margin-left: 20%;
+    font-weight: bold;
+    background: #2c070b;
+}
+.btndark:hover {
+    color: #2c070b;
+    background: none;
 }
