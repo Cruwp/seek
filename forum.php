@@ -20,15 +20,16 @@ if (!isset($_SESSION['id'])) {
     <?php
 } else {
     ?>
-    <!-- Début code page -->
+    <!-- Fil d'arianne -->
     <div id="arianne">
         <?php
         echo "<div class=\"arrow\"></div><a href=\"forum.php\">Forum</a>";
         ?>
     </div>
 
-    <div>
-        <?php recupCategorie(); ?>
+    <!-- Affichage des catégories et des forums -->
+    <div class="description">
+        <?php affichIndexForum(); ?>
     </div>
     <?php
 }
