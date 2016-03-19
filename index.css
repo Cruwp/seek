@@ -372,6 +372,10 @@ a.bold {
 .collast {
     width: 30%;
     text-align: center;
+    font-size: 11px;
+}
+.tableforum .collast a {
+    font-size: 11px;
 }
 
 table.tableforum {
