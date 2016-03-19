@@ -23,7 +23,7 @@ if (!isset($_SESSION['id'])) {
     <!-- Fil d'arianne -->
     <div id="arianne">
         <?php
-        echo "<div class=\"arrow\"></div><a href=\"forum.php\">Forum</a>";
+        echo "<div class=\"arrow\"></div><a href=\"forum\">Forum</a>";
         ?>
     </div>
 
