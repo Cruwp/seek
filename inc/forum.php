@@ -27,8 +27,8 @@ function affichIndexForum() {
         <table class="tableforum">
             <tr class="entete">
                 <th class="colnom"><?php echo $dataCat['cat_nom']; ?></th>
-                <th class="colnbrsujets">Nombre de sujets</th>
-                <th class="colnbrmsg">Nombre de messages</th>
+                <th class="colnbrsujets">Sujets</th>
+                <th class="colnbrmsg">Messages</th>
                 <th class="collast">Dernier sujet</th>
             </tr>
             <?php
