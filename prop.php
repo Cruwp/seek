@@ -12,6 +12,9 @@ if (!isset($_SESSION['id'])) {
     </div>
     <?php
 } else {
+    if (!isset($_GET['p'])) {
+        header("location:players");
+    }
     ?>
 
     <div id="description">

@@ -32,7 +32,7 @@ function afficherAnnonceJoueur($id) {
     </tr>
     <tr>
         <td style=\"text-align:center;\">
-            <a href=\"player-{$resultat['uid']}\" class=\"bold\">{$resultat['upseudo']}</a><br>
+            <a href=\"profile-{$resultat['uid']}\" class=\"bold\">{$resultat['upseudo']}</a><br>
             <img src=\"avatars/{$resultat['uavatar']}\" class=\"avatar\"/><br>
             Le {$resultat['pdate']}
 

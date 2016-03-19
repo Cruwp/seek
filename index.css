@@ -317,3 +317,23 @@ a.bold {
     color: #2c070b;
     background: none;
 }
+
+/**
+ * PROFIL
+ */
+#profil {
+    max-width: 960px;
+    margin: 0 auto;
+}
+#profil .left {
+    float: left;
+    width: 45%;
+}
+#profil .right {
+    float: right;
+    width; 45%;
+}
+
+.cb {
+    clear:both;
+}
