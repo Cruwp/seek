@@ -13,6 +13,8 @@ function affichIndexForum() {
     $reqCat = $bdd->prepare($sqlCat);
     $reqCat->execute();
 
+    echo "<table class=\"tableforum\">";
+
     while ($dataCat = $reqCat->fetch()) {
         // Récupération des forums de la catégorie
         $sqlFor = "SELECT forum_id, forum_name, forum_desc,
@@ -24,39 +26,38 @@ function affichIndexForum() {
         $reqFor->execute();
         ?>
         <!-- Affichage d'une nouvelle catégorie -->
-        <table class="tableforum">
-            <tr class="entete">
-                <th class="colnom"><?php echo $dataCat['cat_nom']; ?></th>
-                <th class="colnbrsujets">Nombre de sujets</th>
-                <th class="colnbrmsg">Nombre de messages</th>
-                <th class="collast">Dernier sujet</th>
+
+        <tr class="entete">
+            <th class="colnom"><?php echo $dataCat['cat_nom']; ?></th>
+            <th class="colnbrsujets">Sujets</th>
+            <th class="colnbrmsg">Messages</th>
+            <th class="collast">Dernier sujet</th>
+        </tr>
+        <?php
+        while ($dataFor = $reqFor->fetch()) {
+            ?>
+            <tr onclick="document.location='unforum-<?php echo $dataFor['forum_id']; ?>'">
+                <td class="colnom">
+                    <?php
+                    echo "<a href=\"unforum-{$dataFor['forum_id']}\">
+                    {$dataFor['forum_name']}</a> - {$dataFor['forum_desc']}";
+                    ?>
+                </td>
+                <td class="colnbrsujets">
+                    <?php echo $dataFor['forum_nbr_topic'] ?>
+                </td>
+                <td class="colnbrmsg">
+                    <?php echo $dataFor['forum_nbr_post'] ?>
+                </td>
+                <td class="collast">
+                    <?php recupDernierMsg($dataFor['forum_last_post_id']); ?>
+                </td>
             </tr>
             <?php
-            while ($dataFor = $reqFor->fetch()) {
-                ?>
-                <tr>
-                    <td class="colnom">
-                        <?php
-                        echo "<a href=\"unforum-{$dataFor['forum_id']}\">
-                        {$dataFor['forum_name']}</a> - {$dataFor['forum_desc']}";
-                        ?>
-                    </td>
-                    <td class="colnbrsujets">
-                        <?php echo $dataFor['forum_nbr_topic'] ?>
-                    </td>
-                    <td class="colnbrmsg">
-                        <?php echo $dataFor['forum_nbr_post'] ?>
-                    </td>
-                    <td class="collast">
-                        <?php recupDernierMsg($dataFor['forum_last_post_id']); ?>
-                    </td>
-                </tr>
-                <?php
-            }
-            ?>
-        </table>
-        <?php
+        }
+
     }
+    echo "</table>";
 }
 
 /**

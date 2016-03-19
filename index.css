@@ -344,8 +344,9 @@ a.bold {
 */
 /* Le fil d'arianne (lien tout au long du forum) */
 #arianne {
-    margin-left : 5%;
-    padding : 0;
+    max-width: 960px;
+    margin: auto;
+    padding : 10px;
 }
 
 .arrow {
@@ -361,33 +362,34 @@ a.bold {
 
 /* Présentation de la liste des catégories */
 .colnom {
-    width: 40%;
+    width: 50%;
 }
 
-.colnbrsujets {
-    width: 15%;
+.colnbrsujets, .colnbrvu, .colnbrmsg {
+    width: 10%;
     text-align: center;
 }
-/* ou */
-.colnbrvu {
-    width: 15%;
-    text-align: center;
-}
-
-.colnbrmsg {
-    width: 15%;
-    text-align: center;
-}
-
 .collast {
     width: 30%;
     text-align: center;
 }
 
-.tableforum table {
-    border: 1px solid black;
+table.tableforum {
+    border-collapse: collapse;
+    max-width: 960px;
+    margin: auto;
 }
-
+.tableforum tr, .tableforum td, .tableforum th {
+    padding: 15px;
+}
+table.tableforum th {
+    background : #2c070b;
+    color: #fefcea;
+}
+.tableforum tr:hover {
+    background : #ccc6a3;
+    cursor : pointer;
+}
 .tableforum a {
     font-size: 18px;
 }
@@ -397,6 +399,6 @@ a.bold {
 }
 
 .tableforum td {
-    border: 1px solid black;
+    border-bottom: 1px solid #2c070b;
     vertical-align:top;
 }
