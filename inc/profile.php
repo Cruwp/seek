@@ -24,7 +24,7 @@ function afficherProfil($pid) {
             <p>
                 ";
                     for ($i = 0; $i < sizeof($teams); $i++) {
-                        echo "<a href=equipe-'{$teams[$i][0]}'>".$teams[$i][1]."</a>";
+                        echo "<a href='equipe-{$teams[$i][0]}'>".$teams[$i][1]."</a>";
                     }
                 echo "
             </p>
@@ -45,9 +45,17 @@ function recupProfil($pid) {
     $req->execute();
     $data = $req->fetch();
 
+    // aucun résultat
+    if ($req->rowCount() == 0) {
+        header('location:404');
+    }
+
     return $data;
 }
-
+/**
+ * Récupère les équipes d'un membre
+ * @param $pid id du membre
+ */
 function recupTeams($pid) {
     require_once "bdd.php";
     $bdd = bdd();
@@ -57,7 +65,10 @@ function recupTeams($pid) {
                           WHERE mtmembre = :id");
     $req->bindParam(":id", $pid);
     $req->execute();
+
+
     $i = 0;
+    $resultats = array();
     while ($data = $req->fetch()) {
         $resultats[$i] = array($data[0], $data[1]);
         $i++;
