@@ -24,7 +24,7 @@ function afficherProfil($pid) {
             <p>
                 ";
                     for ($i = 0; $i < sizeof($teams); $i++) {
-                        echo "<a href='equipe-{$teams[$i][0]}'>".$teams[$i][1]."</a>";
+                        echo "<a href='equipe-{$teams[$i][0]}'>".$teams[$i][1]."</a>, ";
                     }
                 echo "
             </p>
@@ -61,8 +61,8 @@ function recupTeams($pid) {
     $bdd = bdd();
 
     $req = $bdd->prepare("SELECT eid, enom FROM membreteam
-                          JOIN equipes ON eid = mtequipe
-                          WHERE mtmembre = :id");
+                          RIGHT JOIN equipes ON eid = mtequipe
+                          WHERE mtmembre = :id OR eleader = :id");
     $req->bindParam(":id", $pid);
     $req->execute();
 
