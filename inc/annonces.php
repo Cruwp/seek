@@ -68,9 +68,6 @@ function recupAnnoncesJoueur() {
         $resultats = array();
 
         while ($data = $req->fetch()) {
-            // on évite les pb d'accents
-            $data['ptitre'] = utf8_encode($data['ptitre']);
-
             // on met la date au format fr
             $date = date("d/m/Y h:m", strtotime($data['pdate']));
 
@@ -97,9 +94,6 @@ function recupAnnoncesJoueur() {
             $req->execute();
 
             $data = $req->fetch();
-            // on évite les pb d'accents
-            $data['ptitre'] = utf8_encode($data['ptitre']);
-            $data['ppost'] = utf8_encode($data['ppost']);
             // on met la date au format fr
             $data['pdate'] = date("d/m/Y", strtotime($data['pdate']));
             return $data;
@@ -172,9 +166,6 @@ function recupAnnoncesJoueur() {
             $resultats = array();
 
             while ($data = $req->fetch()) {
-                // on évite les pb d'accents
-                $data['rtitre'] = utf8_encode($data['rtitre']);
-
                 // on met la date au format fr
                 $date = date("d/m/Y h:m", strtotime($data['rdate']));
 
@@ -200,9 +191,6 @@ function recupAnnoncesJoueur() {
                 $req->execute();
 
                 $data = $req->fetch();
-                // on évite les pb d'accents
-                $data['rtitre'] = utf8_encode($data['rtitre']);
-                $data['rpost'] = utf8_encode($data['rpost']);
                 // on met la date au format fr
                 $data['rdate'] = date("d/m/Y", strtotime($data['rdate']));
                 return $data;
