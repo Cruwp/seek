@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Sam 12 Mars 2016 à 14:39
+-- Généré le :  Sam 19 Mars 2016 à 16:20
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -46,6 +46,102 @@ INSERT INTO `equipes` (`eid`, `enom`, `eleader`, `edesc`, `eavatar`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `forum_categorie`
+--
+
+CREATE TABLE IF NOT EXISTS `forum_categorie` (
+  `cat_id` int(11) NOT NULL AUTO_INCREMENT,
+  `cat_nom` varchar(30) NOT NULL,
+  PRIMARY KEY (`cat_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Contenu de la table `forum_categorie`
+--
+
+INSERT INTO `forum_categorie` (`cat_id`, `cat_nom`) VALUES
+(1, 'Général'),
+(2, 'Espace détente');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `forum_forum`
+--
+
+CREATE TABLE IF NOT EXISTS `forum_forum` (
+  `forum_id` int(11) NOT NULL AUTO_INCREMENT,
+  `forum_cat_id` mediumint(8) NOT NULL,
+  `forum_name` varchar(30) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `forum_desc` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `forum_last_post_id` int(11) NOT NULL,
+  `forum_nbr_topic` mediumint(8) NOT NULL,
+  `forum_nbr_post` mediumint(8) NOT NULL,
+  `auth_creer` tinyint(4) NOT NULL,
+  `auth_annonce` tinyint(4) NOT NULL,
+  `auth_modo` tinyint(4) NOT NULL,
+  PRIMARY KEY (`forum_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Contenu de la table `forum_forum`
+--
+
+INSERT INTO `forum_forum` (`forum_id`, `forum_cat_id`, `forum_name`, `forum_desc`, `forum_last_post_id`, `forum_nbr_topic`, `forum_nbr_post`, `auth_creer`, `auth_annonce`, `auth_modo`) VALUES
+(1, 1, 'Règles', 'Les règles du forum. Merci de les lires.', 1, 0, 0, 9, 9, 9),
+(2, 1, 'News', 'Les informations à propos du site.', 3, 0, 0, 9, 9, 9),
+(3, 2, 'Blabla', 'Venez parler de tout et de rien !', 5, 0, 0, 0, 9, 9);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `forum_post`
+--
+
+CREATE TABLE IF NOT EXISTS `forum_post` (
+  `post_id` int(11) NOT NULL AUTO_INCREMENT,
+  `post_createur` int(11) NOT NULL,
+  `post_texte` text NOT NULL,
+  `post_time` timestamp NOT NULL,
+  `post_topic_id` int(11) NOT NULL,
+  PRIMARY KEY (`post_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Contenu de la table `forum_post`
+--
+
+INSERT INTO `forum_post` (`post_id`, `post_createur`, `post_texte`, `post_time`, `post_topic_id`) VALUES
+(1, 3, 'Ceci est un ppost sur un topic sur un forum sur une catégorie ^^', '2016-03-19 15:08:00', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `forum_topic`
+--
+
+CREATE TABLE IF NOT EXISTS `forum_topic` (
+  `topic_id` int(11) NOT NULL AUTO_INCREMENT,
+  `topic_forum_id` int(11) NOT NULL,
+  `topic_titre` char(60) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `topic_createur` int(11) NOT NULL,
+  `topic_vu` mediumint(8) NOT NULL,
+  `topic_creation` timestamp NOT NULL,
+  `topic_last_post` int(11) NOT NULL,
+  PRIMARY KEY (`topic_id`),
+  UNIQUE KEY `topic_last_post` (`topic_last_post`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Contenu de la table `forum_topic`
+--
+
+INSERT INTO `forum_topic` (`topic_id`, `topic_forum_id`, `topic_titre`, `topic_createur`, `topic_vu`, `topic_creation`, `topic_last_post`) VALUES
+(1, 1, 'Règlement général', 3, 15, '2016-03-19 14:54:49', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `jeux`
 --
 
@@ -54,7 +150,7 @@ CREATE TABLE IF NOT EXISTS `jeux` (
   `jnom` varchar(50) NOT NULL,
   `jminiature` varchar(70) NOT NULL,
   PRIMARY KEY (`jid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 --
 -- Contenu de la table `jeux`
@@ -154,7 +250,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `ubanni` int(11) NOT NULL DEFAULT '0',
   `ucle` varchar(255) NOT NULL,
   PRIMARY KEY (`uid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Contenu de la table `users`
@@ -162,7 +258,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`uid`, `upseudo`, `upassword`, `uemail`, `urang`, `uavatar`, `uactif`, `uinscription`, `ulastconnec`, `ubanni`, `ucle`) VALUES
 (1, 'Cruwp', '$2y$10$oIyVFPdXzmFZJReIopx6aedQOWTqOnuGxCOBiZZMOoYmSDn0KDLMa', 'G.Cruwp@gmail.com', 10, 'cruwp.jpg', 1, '2016-02-24 12:07:00', '2016-02-27 14:46:01', 0, 'done'),
-(2, 'CptBanane', '$2y$10$oIyVFPdXzmFZJReIopx6aedQOWTqOnuGxCOBiZZMOoYmSDn0KDLMa', 'cptbanane@yopmail.com', 0, 'CptBanane.png', 1, '2016-02-24 15:08:28', '2016-02-25 10:59:05', 0, 'a8b14bf925063e74ad6589b8b7b0b153');
+(2, 'CptBanane', '$2y$10$oIyVFPdXzmFZJReIopx6aedQOWTqOnuGxCOBiZZMOoYmSDn0KDLMa', 'cptbanane@yopmail.com', 0, 'CptBanane.png', 1, '2016-02-24 15:08:28', '2016-02-25 10:59:05', 0, 'a8b14bf925063e74ad6589b8b7b0b153'),
+(3, 'Sydher', '$2y$10$8YvUbQONbWyMhOE9tVVBt.fPT4cA/gSlfs4obEUICnwDU1br0w1b.', 'sydher404@gmail.com', 10, '0.jpg', 1, '2016-03-19 08:29:17', '2016-03-19 13:57:10', 0, '77a4b6d987cee21615f23ba59aaa7231');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
