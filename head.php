@@ -2,6 +2,7 @@
     if (!isset($titre)) {
         $titre = "Seek.fr - Recherche de co-équipiers";
     }
+    include("inc/constantes.php");
 ?>
 <!DOCTYPE html>
 <html lang="fr">
