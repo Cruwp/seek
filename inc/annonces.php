@@ -262,11 +262,30 @@ function creerAnnonce($titre, $post, $type, $jeu) {
         // Annonce de type team
 
         // Il faut récupérer le numéro de team du membre (leader seulement)
+        // Un user ne peut être leader que d'une seule équipe
+        $req = $bdd->prepare("SELECT eid FROM equipes WHERE eleader = :uid");
+        $req->bindParam(":uid", $auteur);
+        $req->execute();
 
+        if ($req->rowCount() == 0) {
+            // N'est pas leader d'une team
+            header("location:404");
+            return null;
+        }
+        $tid = $req->fetch()[0];
+
+        // Ajoute dans la BD
+        $rqt = $bdd->prepare("INSERT INTO recrutement(rteam, rpost, rjeu, rtitre) VALUES (:auteur, :post, :jeu, :titre)");
+        $rqt->bindParam(":auteur", $tid);
+        $rqt->bindParam(":post", $post);
+        $rqt->bindParam(":jeu", $jid);
+        $rqt->bindParam(":titre", $titre);
+        $rqt->execute();
 
         return "<span class='success'>L'annonce est postée avec succès.<br></span>";
     } else {
         // erreur
         header("location:404.php");
+        return null;
     }
 }

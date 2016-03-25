@@ -75,4 +75,21 @@ function recupTeams($pid) {
     }
     return $resultats;
 }
+
+function estLeader($uid) {
+    require_once "inc/bdd.php";
+    $bdd = bdd();
+
+    $req = $bdd->prepare("SELECT COUNT(*) FROM equipes WHERE eleader = :uid");
+    $req->bindParam(":uid", $uid);
+    $req->execute();
+
+    $resultat = $req->fetch()[0];
+
+    if ($resultat == 0) {
+        return false;
+    } else {
+        return true;
+    }
+}
 ?>

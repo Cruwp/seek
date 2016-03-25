@@ -37,7 +37,13 @@
                     ?>
                     </tbody>
                 </table>
-                <p><a href="new-team" class="btndark">Créer une annonce</a></p>
+                <?php
+                    require_once "inc/profile.php";
+                    if (estLeader($_SESSION['id'])) {
+                        echo "<p><a href=\"new-team\" class=\"btndark\">Créer une annonce</a></p>";
+                    }
+                ?>
+
             </div>
         </div>
         <script>

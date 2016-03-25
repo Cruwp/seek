@@ -2,6 +2,7 @@
 session_start();
 $titre = "Seek.fr - Créer une nouvelle annonce";
 include "head.php";
+require_once "inc/profile.php";
 if (!isset($_SESSION['id'])) {
 
     ?>
@@ -24,23 +25,29 @@ if (!isset($_SESSION['id'])) {
     <div id="description">
         <div id="annonces">
             <h3>Créer une nouvelle annonce </h3>
-            <form class="" action="#annonces" method="post">
-                <label for="titre">Titre de l'annonce : <br>
-                    <input type="text" name="titre" placeholder="Titre de l'annonce">
-                </label>
-                <br><br>
-                <label for="titre">
-                    Contenu de l'annonce : <br>
-                    <textarea name="post" rows="10" placeholder="Contenu de l'annonce"></textarea>
-                </label>
-                <br><br>
-                <label for="jeu">Choix du jeu : <br>
-                    <input type="text" id="jeu" name="jeu" placeholder="Jeu">
-                </label>
-                <br><br>
-                <input type="submit" value="Poster l'annonce">
-            </form>
             <?php
+            if ($_GET['a'] == "team" && !estLeader($_SESSION['id'])) {
+                echo "<p>Seul un chef d'équipe peut créer une annonce de team</p>";
+            } else {
+                ?>
+                <form class="" action="#annonces" method="post">
+                    <label for="titre">Titre de l'annonce : <br>
+                        <input type="text" name="titre" placeholder="Titre de l'annonce">
+                    </label>
+                    <br><br>
+                    <label for="titre">
+                        Contenu de l'annonce : <br>
+                        <textarea name="post" rows="10" placeholder="Contenu de l'annonce"></textarea>
+                    </label>
+                    <br><br>
+                    <label for="jeu">Choix du jeu : <br>
+                        <input type="text" id="jeu" name="jeu" placeholder="Jeu">
+                    </label>
+                    <br><br>
+                    <input type="submit" value="Poster l'annonce">
+                </form>
+                <?php
+            }
             // création du post
             if ($_POST) {
                 require_once "inc/annonces.php";
@@ -53,9 +60,9 @@ if (!isset($_SESSION['id'])) {
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script type="text/javascript">
     $(function() {
-      $( "#jeu" ).autocomplete({
-        source: 'inc/listeJeux.php'
-      });
+        $( "#jeu" ).autocomplete({
+            source: 'inc/listeJeux.php'
+        });
     });
     </script>
     <?php

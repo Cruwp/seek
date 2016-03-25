@@ -50,4 +50,4 @@
         <?php
     }
     include "foot.php";
-?>?>
+?>
