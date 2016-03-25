@@ -38,6 +38,7 @@
                     </tbody>
                 </table>
             </div>
+            <p><a href="new-player" class="btndark">Créer une annonce</a></p>
         </div>
         <script>
             $(document).ready(function()
@@ -49,4 +50,4 @@
         <?php
     }
     include "foot.php";
-?>
+?>?>

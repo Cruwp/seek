@@ -10,6 +10,7 @@
     <meta charset="UTF-8">
     <title><?php echo $titre;?></title>
     <link rel="stylesheet" href="index.css" media="screen" type="text/css">
+    <link rel="stylesheet" href="jquery-ui.css">
     <script type="text/javascript" src="jquery-latest.js"></script>
     <script src="jquery.tablesorter.js" type="text/javascript"></script>
     <link rel="icon" type="image/jpg" href="img/favicon.jpg" />

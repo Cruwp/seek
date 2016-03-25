@@ -1,17 +1,27 @@
 <?php
-    session_start();
-    include "head.php";
+session_start();
+include "head.php";
 ?>
 
-    <div id="description">
+<div id="description">
+    <p>
+        SEEK est une plateforme d’échange permettant à des joueurs de recruter d’autres joueurs ou de postuler dans une équipe. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a venenatis purus. Nam at facilisis odio. Maecenas iaculis, odio nec egestas facilisis, velit neque placerat orci, a pharetra ipsum justo sed ante. Praesent non nibh nec erat iaculis molestie ac a turpis. Nunc posuere feugiat felis.
+        <?php
+        if (!isset($_SESSION['pseudo'])) {
+            echo "<br><br><span><a href=\"connexion\">Connexion</a></span> <span><a href=\"inscription\">Inscription</a></span>";
+        }
+        ?>
+    </p>
+    <?php
+    if (isset($_SESSION['pseudo'])) {
+        ?>
         <p>
-            SEEK est une plateforme d’échange permettant à des joueurs de recruter d’autres joueurs ou de postuler dans une équipe. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a venenatis purus. Nam at facilisis odio. Maecenas iaculis, odio nec egestas facilisis, velit neque placerat orci, a pharetra ipsum justo sed ante. Praesent non nibh nec erat iaculis molestie ac a turpis. Nunc posuere feugiat felis.
-            <?php
-                if (!isset($_SESSION['pseudo'])) {
-                    echo "<br><br><span><a href=\"connexion\">Connexion</a></span> <span><a href=\"inscription\">Inscription</a></span>";
-                }
-            ?>
+            Bienvenue <?php echo $_SESSION['pseudo']; ?>, que souhaitez vous faire ? <br>
+                > <a href="#">Modifier les informations de mon profil</a><br>
+                > <a href="#">Créer une nouvelle équipe</a>
+
         </p>
+        <?php } ?>
     </div>
 
     <div id="content">
@@ -41,6 +51,6 @@
             </tr>
         </table>
     </div>
-<?php
+    <?php
     include "foot.php";
-?>
+    ?>

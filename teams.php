@@ -37,6 +37,7 @@
                     ?>
                     </tbody>
                 </table>
+                <p><a href="new-team" class="btndark">Créer une annonce</a></p>
             </div>
         </div>
         <script>

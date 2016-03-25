@@ -29,4 +29,8 @@ function recupListeJeux() {
     }
     return $jeux;
 }
+
+function ajouterJeu($nom, $img) {
+    
+}
 ?>
